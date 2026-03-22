@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teen Videos</title>
+  <style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #0f0f0f;
+    color: #f1f1f1;
+    margin: 0;
+    padding: 2rem;
+  }
+  h1 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #00bcd4;
+  }
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .card {
+    background: #1e1e1e;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  .card a {
+    display: block;
+  }
+  .card img {
+    width: 100%;
+    display: block;
+    height: auto;
+    border-bottom: 1px solid #333;
+    transition: opacity 0.3s ease;
+  }
+  .card img:hover {
+    opacity: 0.85;
+  }
+  </style>
+</head>
+  <h1>🎬 Teen and More in HD Go on <a href="https://xvidrx.github.io/XVideos" target="_blank">🔥XVideOS🔥</a> without ADS!</h1>
+<body>
+<div class="gallery" id="gallery"></div>
+
+<script>
+  const gallery = document.getElementById("gallery");
+
+  // создаём массив от 001 до 155
+  let images = [];
+  for (let i = 1; i <= 155; i++) {
+    images.push(String(i).padStart(3, '0'));
+  }
+
+  // перемешивание (алгоритм Фишера-Йетса)
+  for (let i = images.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [images[i], images[j]] = [images[j], images[i]];
+  }
+
+  // выводим карточки
+  images.forEach(num => {
+    gallery.innerHTML += `
+      <div class="card">
+        <a href="https://xvidrx.github.io/fullx/Player.html" target="_blank">
+          <img src="${num}.jpg" alt="Thumbnail ${num}" loading="lazy">
+        </a>
+      </div>
+    `;
+  });
+</script>
+    <h1>🎬 Teen and More in HD Go on <a href="https://xvidrx.github.io/XVideos" target="_blank">🔥XVideOS🔥</a> without ADS!</h1>
+</body>
+</html>

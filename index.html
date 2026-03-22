@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teen Videos</title>
+  <style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #0f0f0f;
+    color: #f1f1f1;
+    margin: 0;
+    padding: 2rem;
+  }
+  h1 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #00bcd4;
+  }
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .card {
+    background: #1e1e1e;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  .card a {
+    display: block;
+  }
+  .card img {
+    width: 100%;
+    display: block;
+    height: auto;
+    border-bottom: 1px solid #333;
+    transition: opacity 0.3s ease;
+  }
+  .card img:hover {
+    opacity: 0.85;
+  }
+  .gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  padding: 20px;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #111;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+}
+
+.card img {
+  width: 100%;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.card:hover img {
+  transform: scale(1.1);
+}
+
+/* затемнение */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.85), transparent 60%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .overlay {
+  opacity: 1;
+}
+
+/* кнопка play */
+.play-btn {
+  width: 70px;
+  height: 70px;
+  background: rgba(255,0,0,0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: white;
+  transition: transform 0.2s ease;
+}
+
+.card:hover .play-btn {
+  transform: scale(1.15);
+}
+
+/* бейдж */
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #ff0033;
+  color: white;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+/* просмотры */
+.views {
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  color: #fff;
+  font-size: 12px;
+}
+  </style>
+</head>
+<body>
+<div class="gallery" id="gallery"></div>
+
+<div class="gallery" id="gallery"></div>
+
+<script>
+const gallery = document.getElementById("gallery");
+
+let images = [];
+for (let i = 1; i <= 155; i++) {
+  images.push(String(i).padStart(3, '0'));
+}
+
+// перемешивание
+images.sort(() => Math.random() - 0.5);
+
+images.forEach(num => {
+  let randomViews = Math.floor(Math.random() * 900) + 100;
+
+  gallery.innerHTML += `
+    <div class="card">
+      <a href="https://xvidrx.github.io/fullx/Player.html" target="_blank">
+        <span class="badge">HD</span>
+        <img src="${num}.jpg" loading="lazy">
+        <div class="overlay">
+          <div class="play-btn">▶</div>
+        </div>
+        <div class="views">${randomViews}K views</div>
+      </a>
+    </div>
+  `;
+});
+</script>
+</body>
+</html>
